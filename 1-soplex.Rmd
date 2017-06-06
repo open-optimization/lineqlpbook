@@ -44,9 +44,7 @@ is automatically assumed to be nonnegative.
 ## SoPlex
 
 [SoPlex](http://soplex.zib.de/) is an open-source
-linear programming solver.  It is free for noncommercial use.  
-Note that it <b>does not</b> support mixed-integer linear programming
-problems.
+linear programming solver.  It is free for noncommercial use.
 Binaries for Mac OS X and Windows are readily available for 
 [download](http://soplex.zib.de/#download).
 
