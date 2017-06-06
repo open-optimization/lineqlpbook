@@ -1,0 +1,79 @@
+## Solutions {-}
+
+1.  To obtain all the basic feasible solutions, it suffices to
+    enumerate all subsystems
+    \(\mm{A}' \vec{x} \geq \vec{b}'\) of the given system such
+    that the rank of \(\mm{A}'\) is three and solve
+    \(\mm{A}' \vec{x} = \vec{b}'\) for \(\vec{x}\) and see if
+    is a solution to the system, in which case it is a basic feasible
+    solution.  Observe that every basic feasible solution can be
+    discovered in this manner.
+    
+    We have at most four subsystems to consider.
+    
+    Setting the first three inequalities to equality gives the unique solution
+    \(\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}\) which satisfies the given
+    system..
+    Hence, \(\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}\) is a basic feasible
+    solution.
+    
+    Setting the first, second, and fourth inequalities to equality
+    gives the unique solution
+    \(\begin{bmatrix} \frac{5}{3} \\ \frac{1}{3} \\ \frac{4}{3} \end{bmatrix}\)
+    which violates the third inequality of the given system.
+    
+    Setting the first, third, and fourth inequalities to equality
+    leads to no solution. (In fact, the coefficient matrix of the system
+    does not have rank 3 and therefore this case can be ignored.)
+   
+    Setting the last three inequalities to equality gives the unique solution
+    \(\begin{bmatrix} 3 \\ 3 \\ 0 \end{bmatrix}\) which satisfies the given
+    system.
+    Hence, \(\begin{bmatrix} 3 \\ 3 \\ 0 \end{bmatrix}\) is a basic feasible
+    solution.
+    
+    Thus, \(\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}\) and
+    \(\begin{bmatrix} 3 \\ 3 \\ 0 \end{bmatrix}\) are the only basic
+    feasible solutions.
+
+2.  Let \(S\) denote the system \(\mm{A}\vec{x} \geq \vec{b}\).
+    Let \(\vec{x}'\) be a solution to \(S\) such that
+    the rank of \(\mm{A}_{S,\vec{x}'}\) is as large as possible.
+    If the rank is \(n\), then we are done.
+    Otherwise, there exists nonzero \(\vec{d} \in \RR^n\) such
+    \(\mm{A}_{S,\vec{x}'}\vec{d} = \vec{0}\).
+    Since the set of solutions to \(S\) is a bounded set, at least one
+    of the following values is finite:
+
+    + \(\max \{ \lambda \ssep \mm{A} (\vec{x}'+\lambda\vec{d}) \geq\vec{b}\}\)
+
+    + \(\min \{ \lambda \ssep \mm{A} (\vec{x}'+\lambda\vec{d}) \geq\vec{b}\}\)
+
+    Without loss of generality, assume that the maximum is finite and is
+    equal to \(\lambda^*\).
+    Setting \(\vec{x}^*\) to \(\vec{x}'+\lambda^* \vec{d}\),
+    we have that the rows
+    of \(\mm{A}_{S,\vec{x}^*}\) contains all the rows of
+    \(\mm{A}_{S,\vec{x}'}\) plus at least one additional row, 
+    say \(\vec{q}^\T\).  Since \(\vec{q}^\T \vec{d} \neq 0\), by
+    Lemma \@ref(lem:orth-rank), the rank of
+    \(\mm{A}_{S,\vec{x}^*}\) is larger than the rank of
+    \(\mm{A}_{S,\vec{x}'}\), contradicting our choice of \(\vec{x}'\).
+
+3.  The system of equations obtained from taking all the constraints
+    satisfied with equality by \(\vec{x}'\) is
+    \begin{align}
+       \begin{split}
+         \mm{A}\vec{x} & = \vec{b} \\
+         x_j & = 0 ~~j\notin J.
+       \end{split}(\#eq:J-system)
+    \end{align}
+    Note that the coefficient matrix of this system has rank \(n\)
+    if and only if it has a unique solution.
+    Now, \@ref(eq:J-system) simplifies to
+    \[ \sum_{j \in J} x_j \mm{A}_j = \vec{b},
+    \]
+    which has a unique solution if and only if 
+    the columns of \(\mm{A}\) indexed by \(J\) are linearly
+    independent.
+   

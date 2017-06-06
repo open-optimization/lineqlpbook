@@ -1,0 +1,28 @@
+## Exercises {-}
+
+1. Find all basic feasible solutions to
+    \begin{align*}
+      x_1 + 2x_2 - x_3 & \geq 1\\ 
+      x_2 + 2x_3 & \geq 3 \\ 
+      -x_1 + 2x_2 + x_3 & \geq 3 \\ 
+     - x_1 + x_2 + x_3 & \geq 0.\end{align*}
+
+2. A set \(S \subset \RR^n\) is said to be bounded if there exists a real
+   number \(M \gt 0\) such that for every \(\vec{x} \in S\),
+   \(|x_i| \lt M\) for all \(i = 1,\ldots, n\).
+   Let \(\mm{A} \in\RR^{m\times n}\) and \(\vec{b}\in \RR^m\).
+   Prove that if
+   \(\{ \vec{x} \ssep \mm{A} \vec{x} \geq \vec{b}\}\) is nonempty and bounded,
+   then there is a basic feasible solution to
+   \(\mm{A} \vec{x} \geq \vec{b}\).
+
+3. Let \(\mm{A} \in \RR^{m \times n}\) and \(\vec{b} \in \RR^m\) where
+   \(m\) and \(n\) are positive integers with \(m \leq n\).
+   Suppose that the rank of \(\mm{A}\) is \(m\) and \(\vec{x}'\) is
+   a basic feasible solution to 
+   \begin{align*}
+      \mm{A}\vec{x} & = \vec{b} \\
+      \vec{x} & \geq \vec{0}.
+   \end{align*}
+   Let \(J = \{ i \ssep x'_i \gt 0\}\).  Prove that the columns of \(\mm{A}\)
+   indexed by \(J\) are linearly independent.

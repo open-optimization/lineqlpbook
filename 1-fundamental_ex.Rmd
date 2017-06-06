@@ -1,0 +1,29 @@
+## Exercises {-}
+
+1.  Determine the optimal value of the following linear programming problem:
+    \[
+    \begin{array}{rl}
+    \min & x \\
+    \text{s.t.}
+    & x + y  \geq 2 \\
+    & x - 2y + z \geq 0 \\
+    &   y - 2z \geq -1.
+    \end{array}
+    \]
+
+2.  Determine if the following linear programming problem has an optimal 
+    solution:
+    \[
+    \begin{array}{rl}
+    \min & x_1 + 2x_2 \\
+    \text{s.t.}
+    & x_1 + 3x_2  \geq 4 \\
+    & -x_1 + x_2  \geq 0.
+    \end{array}
+    \]
+
+3. A set \(S \subset \RR^n\) is said to be bounded if there exists a real
+   number \(M \gt 0\) such that for every \(\vec{x} \in S\),
+   \(|x_i| \lt M\) for all \(i = 1,\ldots, n\).  Prove that every linear
+   programming problem with a bounded nonempty feasible region has an
+   optimal solution.

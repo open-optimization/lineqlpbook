@@ -1,0 +1,24 @@
+## Exercises {-}
+
+1. Determine all values of \(a\) such that the problem
+\[
+\begin{array}{rl}
+\min & x + y \\
+\text{s.t.} 
+&  -3x + y \geq a \\
+&  2x - y \geq 0 \\
+& x + 2y \geq 2
+\end{array}
+\]
+is infeasible.
+
+2. Show that the problem
+\[
+\begin{array}{rl}
+\min & 2^x \cdot 4^y \\
+\text{s.t.} 
+&  e^{-3x + y} \geq 1 \\
+&  |2x - y| \leq 4 \\
+\end{array}
+\]
+can be solved by solving a linear programming problem.

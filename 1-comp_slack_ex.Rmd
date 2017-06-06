@@ -1,0 +1,62 @@
+## Exercises {-}
+
+1. Let (P) and (D) denote a primal-dual pair of linear programming
+problems.  Prove that if (P) is not infeasible and (D) is infeasible,
+then (P) is unbounded.
+
+2.  Let (P) denote the following linear programming problem:
+    \[\begin{array}{rrcrcrll}
+    \min & &  & 4x_2  & + & 2x_3  \\
+    \text{s.t.} 
+     & x_1 & + &  x_2 & + & 3x_3  & \leq & 1  \\
+     & x_1 & - & 2x_2 & + &  x_3  & \geq & 1  \\
+     & x_1 & + & 3x_2 & - & 6x_3  & = & 0  \\
+     & x_1 & , &     &    & x_3  & \geq & 0 \\
+     &     &   & x_2  &   &      &    & \text{free.}
+    \end{array}\]
+    Determine if
+    \(\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}
+    =\begin{bmatrix} \frac{3}{5} \\ -\frac{1}{5}\\ 0 \end{bmatrix}\)
+    is an optimal solution to (P).
+
+3. Let (P) denote the following linear programming problem:
+\[\begin{array}{rrcrcrlll}
+\min & x_1 & + & 2x_2  & - & 3x_3  \\
+\text{s.t.} 
+&  x_1 & + & 2 x_2 & + & 2x_3  & = & 2  \\
+&  -x_1 & + &  x_2 & + & x_3  & = & 1  \\
+&  -x_1 & + & x_2 & - & x_3  & \geq & 0  \\
+&  x_1 & , & x_2 & , & x_3  & \geq & 0 
+\end{array}\]
+Determine if
+\(\begin{bmatrix} x_1\\x_2\\x_3 \end{bmatrix}
+=\begin{bmatrix} 0 \\ 1\\ 0 \end{bmatrix}\)
+is an optimal solution to (P).
+
+
+4.  Let \(m\) and \(n\) be positive integers.
+    Let \(\mm{A}\in \mathbb{R}^{m\times n}\).
+    Let \(\vec{b}\in \mathbb{R}^{m}\).
+    Let \(\vec{c}\in \mathbb{R}^{n}\).
+    Let (P) denote the linear programming problem
+    \[\begin{array}{rl}
+    \min & \vec{c}^\mathsf{T} \vec{x} \\
+    \text{s.t.} & \mm{A} \vec{x} = \vec{b} \\
+    & \vec{x} \geq \vec{0}.
+    \end{array}
+    \]
+    Let (D) denote the dual problem of (P):
+    \[\begin{array}{rl}
+    \max & \vec{y}^\mathsf{T} \vec{b} \\
+    \text{s.t.} & \vec{y}^\T \mm{A} \leq
+    \vec{c}^\mathsf{T}.
+    \end{array}
+    \]
+    Suppose that \(\mm{A}\)  has rank \(m\) and that (P) has
+    at least one optimal solution.
+    Prove that if \(x^*_j = 0\) for *every* optimal solution
+    \(\mm{x}^*\) to (P), 
+    then there exists
+    an optimal solution \(\vec{y}^*\) to (D)
+    such that \({\vec{y}^*}^\T\mm{A}_j \lt c_i\) where
+     \(\mm{A}_j\) denotes the \(j\)th column of \(\mathbf{A}\).

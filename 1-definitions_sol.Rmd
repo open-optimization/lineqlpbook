@@ -1,0 +1,24 @@
+## Solutions {-}
+
+1.  Adding the first two inequalities gives \(-x \geq a\).
+    Adding \(2\) times the second inequality and the third
+    inequality gives \(5x \geq 2\), implying that \(x \geq \frac{2}{5}\).
+    Hence, if \(a \gt -\frac{2}{5}\), there is no solution.
+    
+    
+    Note that if \(a \leq -\frac{2}{5}\), then
+    \((x,y) = \left (\frac{2}{5}, \frac{4}{5}\right)\) 
+    satisfies all the inequalities.
+    Hence, the problem is infeasible if and only if \(a \gt -\frac{2}{5}\).
+
+
+2.  Note that the constraint \(|2x - y| \leq 4\) is equivalent to the
+    constraints
+    \(2x-y\leq 4\) and \(2x-y \geq -4\) taken together, and
+    the constraint \(e^{-3x+y} \geq 1\) is equivalent to \(-3x+y \geq 0\).
+    Hence, we can rewrite the problem with linear constraints.
+    
+    
+    Finally, minimizing \(2^x \cdot 4^y\) is the same as
+    minimizing \(2^{x + 2y}\), which is equivalent to minimizing
+    \(x+2y\).

@@ -1,0 +1,47 @@
+## Exercises { - }
+
+1. Sketch all \(\begin{bmatrix} x \\ y \end{bmatrix}\)
+satisfying
+\begin{equation*}
+x - 2y \leq 2
+\end{equation*}
+on the \((x,y)\)-plane.
+
+2. Determine the optimal value of
+\[
+\begin{array}{rl}
+\text{Minimize} & x + y \\
+\text{Subject to} &  2x + y \geq 4 \\
+& x + 3y \geq 1.
+\end{array}
+\]
+
+3.  Show that the problem
+\[
+\begin{array}{rl}
+\text{Minimize} & -x + y \\
+\text{Subject to} &  2x - y \geq 0 \\
+& x + 3y \geq 3
+\end{array}
+\]
+is unbounded.
+
+
+4. Suppose that you are shopping for dietary supplements to satisfy your
+   required daily intake of 0.40mg of nutrient \(M\) and 
+   0.30mg of nutrient \(N\).
+   There are three popular products on the market.  The costs and the amounts
+   of the two nutrients are given in the following table:
+    
+    |       | Product 1  | Product 2  | Product 3 |
+    |-------|:----------:|:----------:|:---------:|
+    | Cost  | $27        |  $31       | $24       |
+    | Daily amount of \(M\) | 0.16 mg | 0.21 mg | 0.11 mg |
+    | Daily amount of \(N\) | 0.19 mg | 0.13 mg | 0.15 mg |
+     
+     
+    You want to determine how much of each product you should
+    buy so that the daily intake
+    requirements of the two nutrients are satisfied at minimum cost.
+    Formulate your problem as a linear programming problem,
+    assuming that you can buy a fractional number of each product.

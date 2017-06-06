@@ -1,0 +1,33 @@
+## Exercises {-}
+
+1. Suppose that (MP) in Example \@ref(ex:ilp-ex) above 
+has \(x_2\) required to be an
+integer as well.  Continue with the computations and determine
+an optimal solution to the modified problem.  
+
+2.  With the help of a solver, determine the optimal value of
+\[\begin{array}{rrcrll}
+\max & 3x & + & 2y & \\
+\text{s.t.} 
+& x & + & 3y & \leq & 6 \\
+& 2x & +&  y & \leq & 4 \\
+& x & ,& y & \geq & 0 \\
+& x &,& y & \in  & \mathbb{Z}. \\
+\end{array}\]
+
+3.  Let \(\mm{A} \in \QQ^{m\times n}\) and \(\vec{b} \in \QQ^m\).
+    Let \(S\) denote the system \begin{align*}
+      \mm{A} \vec{x} & \geq \vec{b}\\
+      \vec{x} & \in \ZZ^n
+    \end{align*}
+
+    a.  Suppose that \(\vec{d} \in \QQ^m\)
+    satisfies \(\vec{d} \geq \vec{0}\) and \(\vec{d}^\T\mm{A} \in \ZZ^n\).
+    Prove that every \(\vec{x}\) satisfying \(S\) also satisfies
+    \(\vec{d}^T\mm{A} \vec{x} \geq \lceil \vec{d}^\T\vec{b}\rceil\).
+    (This inequality is known as a **Chvátal-Gomory cutting plane.**)
+
+    b.   Suppose that \(\mm{A} = \begin{bmatrix} 2 & 3 \\ 5 & 3
+    \\ 7 & 6 \end{bmatrix}\)
+    and \(\vec{b} = \begin{bmatrix} 2 \\ 1 \\ 8\end{bmatrix}\).  Show that
+    every \(\vec{x}\) satisfying \(S\) also satisfies \(x_1 + x_2 \geq 2\).

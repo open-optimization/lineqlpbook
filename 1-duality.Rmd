@@ -1,0 +1,376 @@
+# Linear programming duality
+
+Consider the following problem:
+\begin{equation}
+\begin{array}{rl}
+\min & \vec{c}^\T\vec{x} \\
+\mbox{s.t.} & \mm{A}\vec{x} \geq \vec{b}.
+(\#eq:duality-primal)
+\end{array}
+\end{equation}
+
+In the remark at the end of Chapter \@ref(fund-lp), 
+we saw that if \@ref(eq:duality-primal) has an optimal solution,
+then there exists \(\vec{y}^*\in\RR^m\) such
+that \(\vec{y}^* \geq 0\), 
+\({\vec{y}^*}^\T\mm{A} = \vec{c}^\T\), 
+and \({\vec{y}^*}^\T\vec{b} = \gamma\) where
+\(\gamma\) denotes the optimal value of \@ref(eq:duality-primal).
+
+
+Take any \(\vec{y}\in\RR^m\) satisfying \(\vec{y} \geq \vec{0}\) and
+\(\vec{y}^\T\mm{A} = \vec{c}^\T\).
+Then we can infer from \(\mm{A}\vec{x}\geq \vec{b}\) the inequality
+\(\vec{y}^\T\mm{A}\vec{x} \geq \vec{y}^\T
+\vec{b}\), or more simply,
+\(\vec{c}^\T\vec{x} \geq \vec{y}^\T \vec{b}\).
+Thus, for any such \(\vec{y}\), 
+\(\vec{y}^\T \vec{b}\) gives a lower bound for the
+objective function value of any feasible solution to \@ref(eq:duality-primal).
+Since \(\gamma\) is the optimal value of \((P)\), we must
+have \(\gamma \geq \vec{y}^\T\vec{b}\).
+
+
+As \({\vec{y}^*}^\T\vec{b} = \gamma\), we see that
+\(\gamma\) is the optimal value of
+\begin{equation}
+\begin{array}{rl}
+\max & \vec{y}^\T\vec{b} \\
+\mbox{s.t.} & \vec{y}^\T\mm{A} = \vec{c}^\T \\
+&\vec{y} \geq \vec{0}.
+\end{array}(\#eq:duality-dual)
+\end{equation}
+Note that \@ref(eq:duality-dual) is a linear programming problem!
+We call it the **dual problem** of the **primal problem**
+\@ref(eq:duality-primal).
+We say that the dual variable \(y_i\) is **associated** with the
+constraint \({\vec{a}^{(i)}}^\T \vec{x} \geq b_i\)
+where
+\({\vec{a}^{(i)}}^\T\) denotes the \(i\)th row of \(\mm{A}\).
+
+
+In other words, we define the dual problem of \@ref(eq:duality-primal)
+to be the linear
+programming problem \@ref(eq:duality-dual).
+In the discussion above, we saw that
+if the primal problem
+has an optimal solution, then so does the dual problem
+and the optimal
+values of the two problems are equal.
+Thus, we have the following result:
+
+```{theorem, label="strong-duality-special"}
+
+Suppose that \@ref(eq:duality-primal) has an optimal solution.
+Then \@ref(eq:duality-dual) also has an optimal solution
+and the optimal values of the two problems are equal.
+
+```
+
+
+
+At first glance, requiring all the constraints to be \(\geq\)-inequalities
+as in \@ref(eq:duality-primal) before 
+forming the dual problem seems a bit restrictive.
+We now see how the dual problem of a primal 
+problem in general form can be defined.
+We first make two observations that motivate the definition.
+
+
+**Observation 1**
+
+Suppose that our primal problem contains a mixture of all types
+of linear constraints:
+\begin{equation}
+\begin{array}{rl}
+\min & \vec{c}^\T\vec{x}  \\
+\mbox{s.t.} & \mm{A}\vec{x}\geq \vec{b} \\
+& \mm{A'}\vec{x} \leq \vec{b'} \\
+& \mm{A''}\vec{x} = \vec{b''}
+\end{array} (\#eq:P-prime)
+\end{equation}
+where 
+\(\mm{A} \in \RR^{m\times n}\), 
+\(\vec{b} \in \RR^{m}\),
+\(\mm{A}' \in \RR^{m'\times n}\), 
+\(\vec{b}' \in \RR^{m'}\),
+\(\mm{A}'' \in \RR^{m''\times n}\), 
+and 
+\(\vec{b}'' \in \RR^{m''}\).
+
+
+We can of course convert this into an equivalent problem in the form
+of \@ref(eq:duality-primal) and form its dual.  
+However, if we take the point of view
+that the function of the dual is to infer from the constraints of
+\@ref(eq:P-prime) an inequality of the form \(\vec{c}^\T \vec{x} \geq 
+\gamma\) with \(\gamma\) as large as possible by taking an appropriate
+linear combination of the constraints, we are effectively looking
+for 
+\(\vec{y} \in \RR^{m}\), \(\vec{y} \geq \vec{0}\),
+\(\vec{y}' \in \RR^{m'}\), \(\vec{y}' \leq \vec{0}\),
+and \(\vec{y}'' \in \RR^{m''}\), such that
+\[\vec{y}^\T\mm{A}
++\vec{y'}^\T\mm{A'}
++\vec{y''}^\T\mm{A''} = \vec{c}^\T\]
+with 
+\(\vec{y}^\T\vec{b}
++\vec{y'}^\T\vec{b'}
++\vec{y''}^\T\vec{b''}\) to be maximized.
+
+
+(The reason why we need \(\vec{y'} \leq \vec{0}\) is because 
+inferring a \(\geq\)-inequality from
+\(\mm{A}'\vec{x} \leq \vec{b}'\) requires nonpositive multipliers.
+There is no restriction on \(\vec{y''}\) because the constraints
+\(\mm{A}''\vec{x} = \vec{b}''\) are equalities.)
+
+
+This leads to the dual problem:
+\begin{equation}
+\begin{array}{rl}
+\max~ & \vec{y}^\T\vec{b} 
++\vec{y'}^\T\vec{b'}
++\vec{y''}^\T\vec{b''} \\
+\mbox{s.t.} ~
+& \vec{y}^\T\mm{A}
++\vec{y'}^\T\mm{A'}
++\vec{y''}^\T\mm{A''} = \vec{c}^\T \\
+&~~~~\vec{y} \geq \vec{0} \\
+&~~~~\vec{y'} \leq \vec{0}.
+\end{array} (\#eq:D-prime)
+\end{equation}
+
+In fact, we could have derived this dual 
+by applying the definition of the dual problem to
+\begin{equation*}
+\begin{array}{rl}
+\min ~& \vec{c}^\T\vec{x} \\
+\mbox{s.t.}  ~
+& \begin{bmatrix} 
+ \mm{A} \\
+ -\mm{A'} \\
+ \mm{A''} \\
+ -\mm{A''}
+\end{bmatrix} \vec{x}
+\geq
+\begin{bmatrix}
+\vec{b} \\
+-\vec{b'} \\
+\vec{b''} \\
+-\vec{b''}
+\end{bmatrix},
+\end{array}
+\end{equation*}
+which is equivalent to \@ref(eq:P-prime).
+The details are left as an exercise.
+
+
+**Observation 2**
+
+ Consider the primal problem of the following form:
+\begin{equation}
+\begin{array}{rl}
+\min ~& \vec{c}^\T\vec{x} \\
+\mbox{s.t.} ~& \mm{A}\vec{x} \geq \vec{b} \\
+ & x_i \geq 0 ~~i \in P \\
+ & x_i \leq 0 ~~i \in N 
+\end{array}(\#eq:P-dbl-prime)
+\end{equation}
+where \(P\) and \(N\) are disjoint subsets of \(\{1,\ldots,n\}\).
+In other words, constraints of the form \(x_i \geq 0\) or
+\(x_i \leq 0\) are separated out from the rest of the inequalities.
+
+
+Forming the dual of \@ref(eq:P-dbl-prime) as defined under Observation 1,
+we obtain the dual problem
+\begin{equation}
+\begin{array}{rll}
+\max & \vec{y}^\T\vec{b} \\
+\mbox{s.t.} & 
+ \vec{y}^\T\vec{a}^{(i)} = c_i & i \in \{1,\ldots,n\}\backslash 
+(P\cup N) \\
+&\vec{y}^\T\vec{a}^{(i)} + p_i = c_i & i \in P \\
+& \vec{y}^\T\vec{a}^{(i)} + q_i = c_i & i \in N \\
+& p_i \geq 0 & i \in P \\
+& q_i \leq 0 & i \in N \\
+\end{array} (\#eq:D-tilde)
+\end{equation}
+where \(\vec{y} = \begin{bmatrix} y_1\\ \vdots \\ y_m\end{bmatrix}\).
+Note that this problem is equivalent to the following without
+the variables \(p_i\), \(i \in P\) and \(q_i\), \(i \in N\):
+\begin{equation}
+\begin{array}{rll}
+\max & \vec{y}^\T\vec{b} \\
+\mbox{s.t.} & 
+ \vec{y}^\T\vec{a}^{(i)} = c_i & i \in \{1,\ldots,n\}\backslash 
+(P\cup N) \\
+&\vec{y}^\T\vec{a}^{(i)} \leq c_i & i \in P      \\
+& \vec{y}^\T\vec{a}^{(i)} \geq c_i & i \in N,     \\
+\end{array}
+\end{equation}
+which can be taken as the dual problem of \@ref(eq:P-dbl-prime)
+instead of \@ref(eq:D-tilde). The advantage here is that
+it has fewer variables than \@ref(eq:D-tilde).
+
+
+Hence, the dual problem of
+\begin{equation*}
+\begin{array}{rl}
+\min & \vec{c}^\T\vec{x}  \\
+\mbox{s.t.} & \mm{A}\vec{x} \geq \vec{b} \\
+& \vec{x} \geq \vec{0}
+\end{array}
+\end{equation*}
+is simply
+\begin{equation*}
+\begin{array}{rl}
+\max & \vec{y}^\T\vec{b} \\
+\mbox{s.t.} & \vec{y}^\T\mm{A} \leq \vec{c}^\T \\
+& \vec{y} \geq \vec{0}.
+\end{array}
+\end{equation*}
+
+
+As we can see from bove,
+ there is no need to associate dual variables to constraints
+of the form \(x_i \geq 0\) or \(x_i \leq 0\) provided 
+we have the appropriate types of constraints in the dual problem.
+Combining all the observations lead to the definition
+of the dual problem for a primal problem in general form as 
+discussed next.
+
+## The dual problem {#primal-dual}
+
+Let \(\mm{A} \in \RR^{m\times n}\),
+\(\vec{b} \in \RR^m\),
+\(\vec{c} \in \RR^n\).
+Let \({\vec{a}^{(i)}}^\T\) denote the \(i\)th row of \(\mm{A}\).
+Let \(\mm{A}_j\) denote the \(j\)th column of \(\mm{A}\).
+
+
+Let \((P)\) denote the minimization problem with
+variables in the tuple \(\vec{x} = \begin{bmatrix} x_1\\
+\vdots \\ x_n\end{bmatrix}\) given as follows:
+
+* The objective function to be minimized is \(\vec{c}^\T \vec{x}\)
+
+* The constraints are 
+\begin{equation*}{\vec{a}^{(i)}}^\T\vec{x}~\sqcup_i~b_i
+\end{equation*}
+where \(\sqcup_i\) is \(\leq\), \(\geq\), or \(=\) for
+\(i = 1,\ldots, m\).
+
+* For each \(j \in \{1,\ldots,n\}\),
+\(x_j\) is constrained to be nonnegative, nonpositive, or free (i.e. not
+constrained to be nonnegative or nonpositive.)
+
+
+Then the **dual problem** is defined to be the maximization
+problem with variables in the tuple
+\(\vec{y} = \begin{bmatrix} y_1\\ \vdots\\ y_m\end{bmatrix}\) 
+given as follows:
+
+* The objective function to be maximized is \(\vec{y}^\T \vec{b}\)
+
+* For \(j = 1,\ldots, n\), the \(j\)th constraint is
+\begin{equation*}
+\left \{\begin{array}{ll}
+\vec{y}^\T\mm{A}_j \leq c_j & \text{if } x_j \text{ is constrained to 
+be nonnegative} \\
+\vec{y}^\T\mm{A}_j \geq c_j & \text{if } x_j \text{ is constrained to 
+be nonpositive} \\
+\vec{y}^\T\mm{A}_j = c_j & \text{if } x_j \text{ is free}.
+\end{array}\right.
+\end{equation*}
+
+* For each \(i \in \{1,\ldots,m\}\),
+\(y_i\) is constrained to be nonnegative if \(\sqcup_i\) is \(\geq\);
+\(y_i\) is constrained to be nonpositive if \(\sqcup_i\) is \(\leq\);
+\(y_i\) is free if \(\sqcup_i\) is \(=\).
+
+The following table can help remember the above.
+
+| Primal (min) | Dual (max)   |
+|:------------:|:------------:|
+| \(\geq\) constraint | \(\geq 0\) variable |
+| \(\leq\) constraint | \(\leq 0\) variable |
+| \(=\) constraint  | \(\text{free}\) variable |
+| \(\geq 0\) variable | \(\leq\) constraint  |
+| \(\leq 0\) variable |  \(\geq\) constraint |
+| \(\text{free}\) variable | \(=\) constraint |
+
+
+Below is an example of a
+ primal-dual pair of problems based on the above definition:
+
+
+Consider the primal problem:
+\[\begin{array}{rrcrcrcl}
+\mbox{min} &  x_1 & - & 2x_2 & + & 3x_3 & \\
+\mbox{s.t.} & -x_1 &   &      & + & 4x_3 &  =   &5 \\
+            & 2x_1 & + & 3x_2 & - & 5x_3 & \geq &  6 \\
+            &      &   & 7x_2 &   &      & \leq &  8 \\
+            &  x_1 &   &      &   &      & \geq &  0 \\
+            &     &    & x_2  &   &      & &      \mbox{free} \\
+            &     &    &      &   & x_3  & \leq & 0.\\
+\end{array}\]
+
+Here, \(\mm{A}=
+\begin{bmatrix}
+  -1 & 0 & 4 \\
+   2 & 3 & -5 \\
+   0 & 7 & 0 
+\end{bmatrix}\),
+\(\vec{b} = \begin{bmatrix}5 \\6\\8\end{bmatrix}\),
+and
+\(\vec{c} = \begin{bmatrix}1 \\-2\\3\end{bmatrix}\).
+
+The primal problem has three constraints.  So the dual problem
+has three variables.
+As the first constraint in the primal is an equation,
+the corresponding variable in the dual is free.
+As the second constraint in the primal is a \(\geq\)-inequality,
+the corresponding variable in the dual is nonnegative.
+As the third constraint in the primal is a \(\leq\)-inequality,
+the corresponding variable in the dual is nonpositive.
+Now, the primal problem has three variables.  So the dual problem
+has three constraints.
+As the first variable in the primal is nonnegative,
+the corresponding constraint in the dual is a \(\leq\)-inequality.
+As the second variable in the primal is free,
+the corresponding constraint in the dual is an equation.
+As the third variable in the primal is nonpositive,
+the corresponding constraint in the dual is a \(\geq\)-inequality.
+Hence, the dual problem is:
+\[\begin{array}{rrcrcrcl}
+\mbox{max} & 5y_1 & + & 6y_2 & + & 8y_3 & \\
+\mbox{s.t.} & -y_1 & + & 2y_2 &   &      & \leq &  1 \\
+            &      &   & 3y_2 & + & 7y_3 & = & -2 \\
+            & 4y_1 & - & 5y_2 &   &      & \geq &  3 \\
+            &  y_1 &   &      &   &      &      &  \mbox{free} \\ 
+            &     &    & y_2  &   &      & \geq & 0 \\
+            &     &    &      &   & y_3  & \leq & 0.\\
+\end{array}\]
+
+
+**Remarks.** 
+Note that in some books, the primal problem is always a maximization
+problem.  In that case, what is our primal problem is their dual problem
+and what is our dual problem is their primal problem.
+
+One can now prove a more general version of
+Theorem \@ref(thm:strong-duality-special) as stated below.
+The details are left as an exercise.
+
+
+```{theorem, label="strong-duality", name="Duality Theorem for Linear Programming"}
+
+Let (P) and (D) denote a primal-dual pair of linear programming problems.
+If either (P) or (D) has an optimal solution, then so does the other.
+Furthermore, the optimal values of the two problems are equal.
+
+```
+
+Theorem \@ref(thm:strong-duality) is also known informally
+as **strong duality**.

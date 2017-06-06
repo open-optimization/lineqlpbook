@@ -1,0 +1,147 @@
+# Basic feasible solution
+
+For a linear constraint \(\vec{a}^\T \vec{x} \sqcup \gamma\) where
+\(\sqcup\) is \(\geq\), \(\leq\), or \(=\), we
+call \(\vec{a}^\T\) the **coefficient row-vector** of the constraint.
+
+Let \(S\) denote a system of linear constraints with \(n\) variables
+and \(m\) constraints
+given by \({\vec{a}^{(i)}}^\T \vec{x} \sqcup_i b_i\) where
+\(\sqcup_i\) is \(\geq\), \(\leq\), or \(=\) for
+\(i = 1,\ldots, m\).  
+
+For \(\vec{x}' \in \RR^n\),
+let \(J(S,\vec{x}')\) denote the set
+\(\{ i \ssep {\vec{a}^{(i)}}^\T \vec{x}' = b_i\}\)
+and define \(\mm{A}_{S,\vec{x}'}\) to be the matrix whose rows
+are precisely the coefficient row-vectors of the constraints indexed by
+\(J(S,\vec{x}')\).
+
+```{example, label="bfs-ex"}
+
+Suppose that \(S\) is the system
+\begin{align*}
+  x_1 + x_2 - x_3 \geq 2 \\
+ 3x_1 - x_2 + x_3 = 2 \\
+ 2x_1 - x_2  \leq 1 \\
+\end{align*}
+If \(\vec{x}' = \begin{bmatrix} 1 \\ 3 \\ 2\end{bmatrix}\), then
+\(J(S,\vec{x}') = \{1,2\}\) since \(\vec{x}'\) satisfies the 
+first two constraints with
+equality but not the third.  Hence, \(\mm{A}_{S,\vec{x}'} =
+\begin{bmatrix} 1 & 1 & -1 \\ 3 & -1 & 1 \end{bmatrix}\).
+
+```
+
+```{definition}
+A solution \(\vec{x}^*\) to \(S\) is called a **basic feasible solution**
+if the rank of \(\mm{A}_{S,\vec{x}^*}\) is \(n\).
+
+```
+
+A basic feasible solution to the system in Example \@ref(ex:bfs-ex) is
+\(\begin{bmatrix} 1 \\ 1\\ 0\end{bmatrix}.\)
+
+It is not difficult to see that in two dimensions, basic feasible solutions
+correspond to &ldquo;corner points&rdquo; 
+of the set of all solutions.
+Therefore, the notion of a basic feasible solution generalizes 
+the idea of a corner point to higher dimensions.
+
+The following result is the basis for what is commonly known as
+the **corner method** for solving linear programming problems in two variables.
+
+```{theorem, label="corner"}
+Let (P) be a linear programming problem.  Suppose that (P) has an optimal
+solution and there exists a basic feasible solution to its constraints.
+Then there exists an optimal solution that is a basic feasible solution.
+
+```
+
+We first state the following simple fact from linear algebra:
+
+```{lemma, label="orth-rank"}
+Let \(\mm{A} \in \RR^{m\times n}\) and \(\vec{d} \in \RR^n\) be
+such that \(\mm{A} \vec{d} = \vec{0}\).
+If \(\vec{q}\in\RR^n\) satisfies \(\vec{q}^\T \vec{d} \neq 0\)
+then \(\vec{q}^T\) is not in the row space of \(\mm{A}\).
+
+```
+
+
+*Proof of* Theorem \@ref(thm:corner).  
+Suppose that the system of constraints in (P), call it \(S\),
+has \(m\) constraints and \(n\) variables.
+Let the objective function be \(\vec{c}^\T \vec{x}\).
+Let \(v\) denote the optimal value. 
+
+Let \(\vec{x}^*\) be an optimal solution to (P) such that 
+the rank of \(\mm{A}_{S,\vec{x}^*}\) is as large as possible.
+We claim that \(\vec{x}^*\) must be a basic feasible solution.
+
+To ease notation, let \(J = J(S,\vec{x}^*)\).
+Let \(N = \{1,\ldots,m\} \backslash J\).
+
+Suppose to the contrary that the rank of \(\mm{A}_{S,\vec{x}^*}\) is
+less than \(n\).  Let \(\mm{P}\vec{x} = \vec{q}\) denote
+the system of equations obtained by setting the constraints indexed by \(J\)
+to equalities.
+Then \(\mm{P}\vec{x} = \mm{A}_{S,\vec{x}^*}\).
+Since \(\mm{P}\) has \(n\) columns and its rank is less than \(n\),
+there exists a nonzero \(\vec{d}\) such that
+\(\mm{P} \vec{d} = \vec{0}\).
+
+As \(\vec{x}^*\) satisfies each constraint indexed by \(N\) strictly,
+for a sufficiently small \(\epsilon \gt 0\),
+\(\vec{x}^* + \epsilon \vec{d}\) and
+\(\vec{x}^* - \epsilon \vec{d}\) are solutions to \(S\) and therefore
+are feasible to (P).
+Thus, 
+\begin{align}
+\begin{split}
+\vec{c}^\T (\vec{x}^* + \epsilon \vec{d}) & \geq v \\
+\vec{c}^\T (\vec{x}^* - \epsilon \vec{d}) & \geq v.
+\end{split}(\#eq:twoway)
+\end{align}
+Since \(\vec{x}^*\) is an optimal solution, we have
+\(\vec{c}^\T\vec{x}^* = v\). Hence, \@ref(eq:twoway) simplifies to
+\begin{align*}
+\epsilon \vec{c}^\T \vec{d} & \geq 0 \\
+-\epsilon \vec{c}^\T \vec{d} & \geq 0,
+\end{align*}
+giving us \(\vec{c}^\T\vec{d} = 0\) since \(\epsilon \gt 0\).
+
+Without loss of generality, assume that the constraints indexed by
+\(N\) are \(\mm{Q}\vec{x} \geq \vec{r}\).
+As (P) does have a basic feasible solution, implying
+that the rank of \(\begin{bmatrix} \mm{P} \\ \mm{Q}\end{bmatrix}\)
+is \(n\), at least one row
+of \(\mm{Q}\), which we denote by \(\vec{t}^\T\),
+must satisfy \(\vec{t}^\T\vec{d}\neq 0\).  Without loss of generality,
+we may assume that \(\vec{t}^\T\vec{d} \gt 0\), replacing
+\(\vec{d}\) with \(-\vec{d}\) if necessary.
+
+Consider the linear programming problem
+\begin{equation*}
+\begin{array}{rl}
+ \min & \lambda \\
+\text{s.t.} & \mm{Q}(\vec{x}^*+\lambda \vec{d}) \geq \vec{p}
+\end{array}
+\end{equation*}
+Since at least one entry of \(\mm{Q}\vec{d}\) is positive (namely,
+\(\vec{t}^\T\vec{d}\)), 
+this problem must have an optimal solution, say \(\lambda'\).
+Setting \(\vec{x}' = \vec{x}^* + \lambda'\), we have that
+\(\vec{x}'\) is an optimal solution since \(\vec{c}^\T\vec{x}' = v\).
+
+Now, \(\vec{x}'\) must satisfy at least one constraint in 
+\(\mm{Q} \geq \vec{p}\) with equality. 
+Let \(\vec{q}^\T\)  be the coefficient row-vector of one such
+constraint.
+Then the rows of \(\mm{A}_{S,\vec{x}'}\) must
+have all the rows of \(\mm{A}_{S,\vec{x}^*}\) and \(\vec{q}^\T\).
+Since \(\vec{q}^\T\vec{d} \neq 0,\) by
+Lemma \@ref(lem:orth-rank),  the rank of \(\mm{A}_{S,\vec{x}'}\) is
+larger than rank the rank of \(\mm{A}_{S,\vec{x}^*}\),
+contradicting our choice of \(\vec{x}^*\).
+Thus, \(\vec{x}^*\) must be a basic feasible solution.

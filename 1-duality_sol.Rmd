@@ -1,0 +1,61 @@
+## Solutions {-}
+
+1.  The dual is \[\begin{array}{rrcrcll}
+    \max & 3y_1 \\
+    \text{s.t.} 
+    & y_1 & +  & 3y_2 & = & 4\\
+    & 2y_1 & - & 4y_2 & \leq & -2 \\
+    &  y_1 &   &      &\geq & 0.
+    \end{array}\]
+
+
+2.  The dual is \[\begin{array}{rrcrcll}
+    \max  & y_1  &   &   \\
+    \mbox{s.t.}
+     & y_1 & + &  y_2 & \leq & 0 \\
+     & y_1 &   &      & \leq & 3 \\
+     &2y_1 & - & 3y_2 & \leq & 1 \\
+     & y_1 &   &      &      & \mbox{free} \\
+     &     &   &  y_2 &  \leq & 0.
+    \end{array}\]
+
+3.  The dual is \[\begin{array}{rrcll}
+    \max  & y_1  \\
+    \mbox{s.t.}
+     &   y_1 & \geq & 1 \\
+     & -3y_1 & = & 0 \\
+     & 2y_1 & \leq & -9 \\
+     & y_1 &    & \mbox{free}.
+    \end{array}\]
+
+4.  Let (P) denote the given linear programming problem.
+
+    Note that \(\begin{bmatrix} x_1 \\ x_2\end{bmatrix} = \begin{bmatrix}
+    1 \\ 0\end{bmatrix}\) is a feasible solution to (P).
+    Therefore, by Theorem \@ref(fund-lp),
+    it suffices to find all values \(c_1,c_2\) such that
+    (P) is not unbounded.  This amounts to finding all values
+    \(c_1,c_2\) such that the dual problem of (P) has a feasible solution.
+
+    The dual problem of (P) is \[\begin{array}{rl}
+    \max & 2 y_1 + y_2 \\
+    & 2y_1 + y_2 = c_1 \\
+    & y_1 + 3y_2 = c_2 \\
+    & y_1 , y_2 \geq 0. \\
+    \end{array}
+    \]
+    
+    The two equality constraints gives
+    \(\begin{bmatrix} y_1 \\ y_2 \end{bmatrix} =
+    \begin{bmatrix}
+    \frac{3}{5}c_1 - \frac{1}{5} c_2 \\
+    -\frac{1}{5}c_1 + \frac{2}{5} c_2
+    \end{bmatrix}.\)
+    Thus, the dual problem is feasible if and only if
+    \(c_1\) and \(c_2\) are real numbers satisfying
+    \begin{align*}
+    \frac{3}{5}c_1 - \frac{1}{5} c_2 & \geq & 0 \\
+    -\frac{1}{5}c_1 + \frac{2}{5} c_2  & \geq & 0,
+    \end{align*}
+    or more simply,
+    \[\frac{1}{3} c_2 \leq c_1 \leq 2 c_2.\]

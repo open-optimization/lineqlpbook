@@ -1,0 +1,17 @@
+## Exercises {-}
+
+1. Determine the smallest value of \(\mu\) such that
+\(x + y \geq \mu\) can be inferred from the system
+\begin{align*}
+2x + y & \geq 2 \\
+x + 3y & \geq 1 \\
+3x + 2y & \geq 6
+\end{align*}
+
+2. Show that the inequality \(x + 2y \geq 3\) can be inferred from the system
+\begin{align*}
+2x + y & \geq 2 \\
+x + 5y & \geq 7 \\
+-x + y & = 1 \\
+\end{align*}
+in infinitely many ways.

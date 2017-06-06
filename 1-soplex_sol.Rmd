@@ -1,0 +1,3 @@
+## Solutions {-}
+
+1.   The optimal value is \(\frac{1882}{11679}\).

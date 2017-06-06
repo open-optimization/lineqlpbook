@@ -1,0 +1,10 @@
+## Exercises {-}
+
+1. Use SoPlex to obtain the exact optimal value of 
+\[\begin{array}{rrcrcrcl}
+\min & 3 x & + & 2 y & + & 9 z \\
+\text{s.t.} & 53 x & + & 20 y & + & 96 z & \geq & 2 \\
+ & 13 x & - & 7 y & + & 6 z & \geq & \frac{3}{17} \\
+ & -x & + & 71 y & - & 3 z & \geq & \frac{7}{3} \\
+ & x &, & y &,  &z  &\geq & 0.
+\end{array}\]

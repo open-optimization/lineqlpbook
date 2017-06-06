@@ -1,0 +1,11 @@
+## Exercises {-}
+
+1.  You are given that the following system has no solution.
+    \begin{eqnarray*}
+    x_1 + x_2 + 2x_3& \geq & 1 \\
+    -x_1 + x_2 + x_3 & \geq & 2 \\
+    x_1-x_2 + x_3  & \geq & 1 \\
+    -x_2 - 3x_3 & \geq & 0.
+    \end{eqnarray*}
+    Obtain a certificate of infeasibility for the system.
+

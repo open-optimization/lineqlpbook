@@ -1,0 +1,127 @@
+## Solutions {-}
+
+1.  By the Fundamental Theorem of Linear Programming, (P) either
+    is unbounded or has an optimal solution.  If it is the latter, then
+    by strong duality, \((D)\) has an optimal solution, which contradicts
+    that \((D)\) is infeasible.  Hence, (P) must be unbounded.
+
+2.  We show that it is not an optimal solution to (P).
+    First, note that the dual problem of (P) is
+    \[\begin{array}{rrcrcrlll}
+    \max & y_1 & +& y_2  &   &       \\
+    \mbox{s.t.} 
+    &  y_1 & + &  y_2 & + &  y_3 & \leq & 0  \\
+    &  y_1 & - & 2y_2 & + & 3y_3  & = & 4  \\
+    & 3y_1 & + &  y_2 & - & 6y_3  & \leq & 2  \\
+    &  y_1 &   &     &    &      & \leq & 0 \\
+    &      &   & y_2  &   &      & \geq   &  0 \\
+    &      &   &     &    & y_3  &    & \mbox{free.} \\
+    \end{array}\]
+    
+    
+    \end{bmatrix}\) were an optimal solution, there would exist
+    \(\vec{y^*}\) feasible to \((D)\) satisfying the complementary
+    slackness conditions with \(\vec{x}^*\):
+    \begin{eqnarray*}
+     y_1^* = 0 & \mbox{ or } &  ~x_1^* + ~x_2^* + 3x_3^* = 1 \\
+     y_2^* = 0 & \mbox{ or } &  ~x_1^* - 2x_2^* +~x_3^* = 1 \\
+     y_3^* = 0 & \mbox{ or } &  ~x_1^* + 3x_2^* - 6x_3^* = 0 \\
+     x_1^* = 0 & \mbox{ or } &  ~y_1^* + ~~y_2^* + ~y_3^* = 0 \\
+     x_2^* = 0 & \mbox{ or } &  ~y_1^*  - 2y_2^* + 3y_3^* =  4 \\
+     x_3^* = 0 & \mbox{ or } &  3y_1^*  + ~y_2^* - 6y_3^* =  2. \\
+    \end{eqnarray*}
+    Since \(x^*_1 + x_2^* + 3x_3^* \lt 1\), we must have \(y_1^* = 0\).
+    Also, \(x_1^*, x_2^*\) are both nonzero.  Hence,
+    \begin{eqnarray*}
+    y_1^* + y_2^* + y_3^* = 0~ \\
+    y_1^* - 2y_2^* + 3y_3^* = 4,
+    \end{eqnarray*}
+    implying that
+    \begin{eqnarray*}
+     y_2^* + y_3^* = 0~ \\ 
+    - 2y_2^* + 3y_3^* = 4.
+    \end{eqnarray*}
+    Solving gives \(y_2^* = -\frac{4}{5}\) and \(y_3^* = \frac{4}{5}\).
+    But this implies that \(y^*\) is not a feasible solution
+    to the dual problem since we need \(y_2^* \geq 0\).
+    Hence, \(\vec{x}^*\) is not an optimal solution to (P).
+
+3.  We show that it is not an optimal solution to (P).
+    First, note that the dual problem of (P) is
+    \[\begin{array}{rrcrcrlll}
+    \max & 2y_1 & +& y_2  &   &       \\
+    \mbox{s.t.} 
+    &  y_1 & - &  y_2 & - &  y_3 & \leq & 1  \\
+    & 2 y_1 & + & y_2 & + & y_3  & \leq & 2  \\
+    & 2 y_1 & + & y_2 & - & y_3  & \leq & -3  \\
+    &  y_1 & , & y_2  &   &      &  & \mbox{free.} \\
+    &      &   &      &   & y_3  & \geq  & 0
+    \end{array}\]
+    
+    Note that \(\vec{x}^* = \begin{bmatrix} 0 \\ 1 \\ 0 
+    \end{bmatrix}\) is a feasible solution to (P).
+    If it were an optimal solution to (P), there would exist
+    \(\vec{y^*}\) feasible to the dual problem (D)
+    satisfying the complementary
+    slackness conditions with \(\vec{x}^*\):
+    \begin{eqnarray*}
+     y_1^* = 0 & \mbox{ or } &  ~x_1^* + 2x_2^* + 2x_3^* = 2 \\
+     y_2^* = 0 & \mbox{ or } &  -x_1^* + ~x_2^* + ~x_3^* = 1 \\
+     y_3^* = 0 & \mbox{ or } &  -x_1^* + ~x_2^* - ~x_3^* = 0 \\
+     x_1^* = 0 & \mbox{ or } &  ~y_1^* - y_2^* - y_3^* = 1 \\
+     x_2^* = 0 & \mbox{ or } &  2y_1^*  + y_2^* + y_3^* =  2 \\
+     x_3^* = 0 & \mbox{ or } &  2y_1^*  + y_2^* - y_3^* = -3. \\
+    \end{eqnarray*}
+    Since \(-x^*_1 + x_2^* - x_3^* \gt 0\), we must have \(y_3^* = 0\).
+    Also, \(x_2^* \gt 0\) implies that
+    \(2y_1^* + y_2^* + y_3^* = 2\).
+    Simplifying gives \(y_2^* = 2 -2y_1^*\).
+    
+    Hence, for \(y^*\) to be feasible to the dual problem,
+    it needs to satisfy the third constraint,
+    \(2y_1^* + (2 - 2y_1^*) \leq -3\), which simplifies to
+    the absurdity \(2 \leq -3\).
+    Hence, \(\vec{x}^*\) is not an optimal solution to (P).
+
+4.  Let \(v\) denote the optimal value of (P).
+    Let (P') denote the problem
+    \[\begin{array}{rl}
+    \min & -x_i \\
+    \text{s.t.} & \mm{A}\vec{x} = \vec{b} \\
+    & \vec{c}^\T \vec{x} \leq v \\
+    & \vec{x} \geq \vec{0}
+    \end{array}\]
+    Note that \(x^*\) is a feasible solution to (P') if and only
+    if it is an optimal solution to (P).
+    Since \(x_i^* = 0\) for every optimal solution to (P), we see
+    that the optimal value of (P') is 0.
+    
+    Let (D') denote the dual problem of (P'):
+    \[\begin{array}{rl}
+    \max & \vec{y}^\T \vec{b} + v u \\
+    \text{s.t.} &
+    \vec{y}^\T \mm{A}_p + c_p u \leq 0~~\text{ for all } p \neq i \\
+    & \vec{y}^\mathsf{T} \mm{A}_i + c_i u \leq -1 \\
+    & u \leq 0.
+    \end{array}
+    \]
+    Suppose that an optimal solution to (D') is given by
+    \(\vec{y}', u'\).
+    Let \(\bar{\vec{y}}\) be an optimal solution to (D).
+    We consider two cases.
+    
+    **Case 1:** \(u' = 0\).
+
+    Then \({\vec{y}'}^\T\vec{b} = 0\).
+    Hence,
+    \(\vec{y}^* = \bar{\vec{y}} + \vec{y}'\)
+    is an optimal
+    solution to (D) with \({\vec{y}^*}^\T \mm{A}_i \lt c_i\).
+
+    **Case 2:** \(u' \lt 0\).
+
+    Then \({\vec{y}'}^\T\vec{b} + vu'= 0\),
+    implying that \(\frac{1}{|u'|} {\vec{y}'}^\T\vec{b} = v\).
+    Let \(\vec{y}^* = \frac{1}{|u|}\vec{y}'\).
+    Then \({\vec{y}^*}\) is an optimal
+    solution to (D) with \({\vec{y}^*}^\T \mm{A}_i \lt c_i\).

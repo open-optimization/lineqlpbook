@@ -1,0 +1,103 @@
+## Solutions {-}
+
+1. The problem is equivalent to determining the minimum value for \(x\)
+    among all \(x,y,z\) satisfying
+    \[
+    \begin{array}{r}
+     x + y  \geq 2 ~~~~~~(1)\\
+     x - 2y + z \geq 0~~~~~~(2) \\
+        y - 2z \geq -1.~~~~(3)
+    \end{array}
+    \]
+    
+    
+    We use Fourier-Motzkin Elimination Method to eliminate \(z\).
+    Multiplying \((3)\) by \(\frac{1}{2}\), we get
+    \[
+    \begin{array}{r}
+     x + y  \geq 2 ~~~~~~(1)\\
+     x - 2y + z \geq 0~~~~~~(2) \\
+        \frac{1}{2}y - z \geq -\frac{1}{2}.~~~~(4)
+    \end{array}
+    \]
+    Eliminating \(z\), we obtain
+    \[
+    \begin{array}{r}
+     x + y  \geq 2 ~~~~~~(1)\\
+     x - \frac{3}{2}y \geq -\frac{1}{2}~~~~~~(5) \\
+    \end{array}
+    \]
+    where \((5)\) is given by \((2) + (4)\).
+    
+    
+    Multiplying \((5)\) by \(\frac{2}{3}\), we get
+    \[
+    \begin{array}{r}
+     x + y  \geq 2 ~~~~~~(1)\\
+    \frac{2}{3} x - y \geq -\frac{1}{3}~~~~~~(6) \\
+    \end{array}
+    \]
+    Eliminating \(y\), we get
+    \[
+    \begin{array}{r}
+    \frac{5}{3} x  \geq \frac{5}{3} ~~~~~~(7)\\
+    \end{array}
+    \]
+    where \((7)\) is given by \((1) + (6)\).
+    Multiplying \((7)\) by \(\frac{3}{5}\), we obtain \(x \geq 1\).
+    Hence, the minimum possible value for \(x\) is \(1\).
+    
+    
+    Note that setting \(x = 1\), the system \((1)\) and \((6)\) forces 
+    \(y = 1.\)
+    And \((2)\) and \((3)\) together force \(z = 1.\)
+    One can check that \((x,y,z) = (1,1,1)\) is a feasible solution.
+    
+    
+    **Remark.**
+    Note that the inequality \(x \geq 1\) is given by
+    \begin{eqnarray*}
+    \frac{3}{5} (7)
+    & \Leftarrow & \frac{3}{5} (1) + \frac{3}{5} (6) \\
+    & \Leftarrow & \frac{3}{5} (1) + \frac{2}{5} (5) \\
+    & \Leftarrow & \frac{3}{5} (1) + \frac{2}{5} (2) + \frac{2}{5} (4)  \\
+    & \Leftarrow & \frac{3}{5} (1) + \frac{2}{5} (2) + \frac{1}{5} (3)
+    \end{eqnarray*}
+
+
+2.  It suffices to determine if there exists a minimum value for \(z\) among
+    all the solutions to the system
+    \[
+    \begin{array}{rl}
+    z-  x_1 - 2x_2 \geq 0 & ~~~(1) \\
+    -z+  x_1 + 2x_2 \geq 0 &  ~~~(2)\\
+    x_1 + 3x_2   \geq 4 &  ~~~(3)\\
+    -x_1 + x_2  \geq 0 & ~~~(4)
+    \end{array}
+    \]
+    Using Fourier-Motzkin elimination to eliminate \(x_1\), we obtain:
+    \[
+    \begin{array}{rrl}
+    (1) + (2): &  0 \geq 0 \\
+    (1) + (3): & z +  x_2 \geq 4 &  ~~~(5)\\
+    (2) + (4): & - z + 3x_2 \geq 0 & ~~~(6) \\
+    (3) + (4): & 4x_2 \geq 4 & ~~~(7)
+    \end{array}
+    \]
+    Note that all the coefficients of \(x_2\) is nonnegative.  Hence,
+    eliminating \(x_2\) will result in a system with no constraints.
+    Therefore, there is no lower bound on the value of \(z\).
+    In particular, if \(z = t\) for \(t\leq 0\), then from \((5)\)--\((6)\),
+    we need \(x_2 \geq 4-t\), \(3x_2 \geq t\), and \(x_2 \geq 1\).
+    Hence, we can set \(x_2 = 4-t\) and \(x_1 = -8+3t\).
+    This gives a feasible solution for all \(t \leq 0\)
+    with objective function value that approaches \(-\infty\)
+    as \(t \rightarrow -\infty\).  Hence, the linear programming problem
+    is unbounded.
+
+3.  Let (P) denote a linear programming problem with a bounded nonempty
+    feasible region with objective function \(\vec{c}^\T\vec{x}\).
+    By assumption, (P) is not infeasible.  Note that (P)
+    is not unbounded because
+    \(|\vec{c}^\T\vec{x}| \leq \sum_{i} |c_i||x_i| \leq M \sum_{i} |c_i| \).
+    Thus, by Theorem \@ref(thm:fund-lp), (P) has an optimal solution.

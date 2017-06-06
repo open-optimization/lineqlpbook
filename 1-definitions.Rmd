@@ -1,0 +1,135 @@
+# Definitions
+
+The following is an example of a problem in **linear programming**:
+\[
+\begin{array}{rl}
+\text{Maximize} & x + y - 2z \\
+\text{Subject to} &  2x + y + z \leq 4 \\
+& 3x - y + z = 0 \\
+&  x, y, z \geq 0
+\end{array}
+\]
+**Solving** this problem means finding real values for 
+the **variables** \(x,y,z\) satisfying
+the **constraints** \(2x + y + z \leq 4\), \(3x-y +z =0\),
+and \(x,y,z \geq 0\) that gives the maximum possible value
+(if it exists) for the **objective function** \(x + y - 2z\).
+
+
+For example,
+\(\begin{bmatrix} x\\y\\z\end{bmatrix} = \begin{bmatrix}
+0 \\ 1 \\ 1\end{bmatrix}\) satisfies all the constraints and is called
+a **feasible solution**. 
+Its **objective function value**,
+obtained by evaluating the objective function at 
+\(\begin{bmatrix} x\\y\\z\end{bmatrix} = \begin{bmatrix}
+0 \\ 1 \\ 1\end{bmatrix}\), is \(0 + 1 - 2(1) = -1\).
+The set of feasible solutions to a linear programming problem
+is called the **feasible region**.
+
+
+More formally, a linear programming problem is an optimization problem
+of the following form:
+\[
+\begin{array}{rll}
+\text{Maximize (or Minimize)} & \displaystyle\sum_{j=1}^n c_j x_j \\
+\text{Subject to} &  P_i(x_1, \ldots, x_n) & i = 1,\ldots, m
+\end{array}
+\]
+where \(m\) and \(n\) are positive integers,
+\(c_j \in \RR\) for \(j = 1,\ldots, n\),
+and for each \(i = 1,\ldots, m\), \(P_i(x_1,\ldots, x_n)\) 
+is a **linear constraint** 
+on the **(decision) variables** \(x_1,\ldots, x_n\)
+having one of the following forms:
+
+* \(a_1 x_1 + \cdots + a_n x_n \geq \beta\)
+* \(a_1 x_1 + \cdots + a_n x_n \leq \beta\)
+* \(a_1 x_1 + \cdots a_n x_n = \beta\)
+
+where \(\beta, a_1,\ldots, a_n \in \RR\).
+To save writing, the word &ldquo;Minimize&rdquo; (&ldquo;Maximize&rdquo;)
+is replaced with &ldquo;\(\min\)&rdquo; (&ldquo;\(\max\)&rdquo;) 
+and &ldquo;Subject to&rdquo; is
+abbreviated as &ldquo;\(\text{s.t.}\)&rdquo;.
+
+
+A feasible solution \(\vec{x} = \begin{bmatrix} x_1 \\ \vdots \\
+x_n\end{bmatrix}\) that gives the maximum possible
+objective function value in the case of a maximization problem is
+called an **optimal solution** and its objective function value
+is the  **optimal value** of the problem.
+
+The following example shows that it is possible to have multiple optimal 
+solutions:
+\[
+\begin{array}{rl}
+\max & x + y\\
+\text{s.t.} &  2x + 2y\leq 1
+\end{array}
+\]
+The constraint says that \(x+y\) cannot exceed \(\frac{1}{2}\).
+Now, both
+\(\begin{bmatrix}x\\y\end{bmatrix} = 
+\begin{bmatrix}\frac{1}{2}\\ 0\end{bmatrix}\) 
+and
+\(\begin{bmatrix}x\\y\end{bmatrix} = 
+\begin{bmatrix}0\\\frac{1}{2}\end{bmatrix}\)
+are feasible solutions having objective function value \(\frac{1}{2}\).
+Hence, they are both optimal solutions.  (In fact, this problem has infinitely
+many optimal solutions.  Can you specify all of them?)
+
+
+Not all linear programming problems have optimal solutions. For example,
+a problem can have no feasible solution.  Such a problem is said to
+be **infeasible**.  Here is an example of an infeasible problem:
+\[
+\begin{array}{rl}
+\min & x \\
+\text{s.t.} &  x \leq 1 \\
+& x \geq 2
+\end{array}
+\]
+There is no value for \(x\) that is at the same time at most 1 and at least 2.
+
+Even if a problem is not infeasible, it might not have an optimal solution
+as the following example shows:
+\[
+\begin{array}{rl}
+\min & x \\
+\text{s.t.} &  x \leq 0
+\end{array}
+\]
+Note that now matter what real number \(M\) we are given, we can
+always find a feasible solution whose objective function value is less
+than \(M\).  Such a problem is said to be **unbounded**.
+(For a maximization problem, it is unbounded if
+one can find feasible solutions who objective function value is
+larger than any given real number.)
+
+---------------
+
+So far, we have seen that a linear programming problem can have an optimal
+solution, be infeasible, or be unbounded.
+Is it possible for a linear programming problem to be not infeasible,
+not unbounded, and with no optimal solution?  
+The following optimization problem, though not
+a linear programming problem, is not infeasible, not unbounded, and has
+no optimal solution:
+\[
+\begin{array}{rl}
+\min & 2^x \\
+\text{s.t.} &  x \leq 0
+\end{array}
+\]
+The objective function value is never negative and can get arbitrarily
+close to 0 but can never attain 0.
+
+A main result in linear programming states that if a linear programming
+problem is not infeasible and is not unbounded, then it must have
+an optimal solution.  This result is known as the
+**Fundamental Theorem of Linear Programming** (Theorem \@ref(thm:fund-lp))
+and we will see a proof of this importan result.
+In the meantime, we will consider the seemingly
+easier problem of determining if a system of linear constraints 
+has a solution.

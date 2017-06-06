@@ -1,0 +1,41 @@
+## Exercises {-}
+
+1.  Write down the dual problem of
+    \[\begin{array}{rrcrcl}
+    \min & 4x_1 & - & 2x_2 \\
+    \text{s.t.} 
+     & x_1 & + & 2x_2 & \geq & 3\\
+     & 3x_1 & - & 4x_2 & = & 0 \\
+     &  & & x_2 & \geq & 0.
+    \end{array}\]
+
+2.  Write down the dual problem of the following:
+    \[
+    \begin{array}{rrcrcrcl}
+    \min  &    &  &3x_2  & + & x_3 \\
+    \mbox{s.t.}
+     & x_1 & + & x_2 & + & 2x_3 & = & 1 \\
+     & x_1 &   &     & - & 3x_3 & \leq & 0 \\
+     & x_1 & , & x_2 & , & x_3 & \geq & 0.
+    \end{array}
+    \]
+
+3.  Write down the dual problem of the following:
+    \[
+    \begin{array}{rrcrcrcl}
+    \min  & x_1 &  &  & - & 9x_3 \\
+    \mbox{s.t.}
+     & x_1 & - & 3x_2 &  + & 2x_3 & = & 1 \\
+     & x_1 & &  & &  & \leq & 0 \\
+     & &  & x_2 & &  &  & \mbox{free} \\
+     & &  & &  & x_3 & \geq & 0.
+    \end{array}\]
+
+4.  Determine all values \(c_1,c_2\) such that the linear programming problem
+\[\begin{array}{rl}
+\min & c_1 x_1 + c_2 x_2 \\
+\text{s.t.} & 2x_1 + x_2 \geq 2 \\
+& x_1 + 3x_2 \geq 1.
+\end{array}
+\]
+has an optimal solution. Justify your answer

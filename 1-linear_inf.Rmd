@@ -1,0 +1,76 @@
+# Inferring linear constraints
+
+If \(a\), \(b\), \(c\), and \(d\) are real numbers such that
+\(a \geq b\) and \(c \geq d\), then 
+\(a + c \geq b + d\).
+We say that \(a + c \geq b + d\) is **inferred** from
+\(a \geq b\) and \(c \geq d\).
+Casually, we also say that &ldquo;adding&rdquo; the two inequalities
+gives \(a + c \geq b + d\).
+
+Note that adding inequalities require that the inequalities
+to have the same sense; in other words, 
+adding a mixture of \(\leq\)-inequalities
+and \(\geq\)-inequalities is not allowed for obvious reason.
+However, adding a mixture
+of inequalities having the same sense and equations is valid.
+For example, if \(x\) and \(y\) are real numbers satisfying
+\begin{align*}
+x - 2y & \geq 5 \\
+3x + y & = 7,
+\end{align*}
+then \(x\) and \(y\) must also satisfy \(4x - y \geq 12\).
+
+Going one step further,
+we can add scalar multiples of inequalities to obtain new inequalities
+under appropriate conditions.
+For example, if \(a\geq b\), \(c \leq d\),
+\(\alpha \geq 0\), and \(\beta \leq 0\), 
+then 
+\(\alpha a + \beta c \geq \alpha b + \beta d\).
+
+In general, suppose that \(\vec{x} \in \RR^n\) satisfies the system
+\begin{align}
+\begin{split}
+\mm{P} \vec{x} & \geq \vec{p} \\
+\mm{Q} \vec{x} & \leq \vec{q} \\
+\mm{R} \vec{x} & = \vec{r} 
+\end{split}
+(\#eq:mixed-sys)
+\end{align}
+where 
+\(\mm{P} \in \RR^{m \times n}\), \(\vec{p} \in \RR^m\),
+\(\mm{Q} \in \RR^{m' \times n}\), \(\vec{q} \in \RR^{m'}\),
+\(\mm{R} \in \RR^{\bar{m} \times n}\), \(\vec{r} \in \RR^{\bar{m}}\)
+for some nonnegative integers \(m, m', \bar{m}\).
+If
+\(\vec{f} \in \RR^m\) with \(\vec{f} \geq \vec{0}\),
+\(\vec{g} \in \RR^{m'}\) with \(\vec{g} \leq \vec{0}\),
+and \(\vec{h} \in \RR^{\bar{m}}\),
+then \(\vec{x}\) also satisfies
+\[ \vec{c}^\T \vec{x} \geq \gamma\]
+where
+\(\vec{c} =
+ \vec{f}^\T\mm{P}+ \vec{g}^\T \mm{Q} +\vec{h}^\T \mm{R}\) and
+\(\gamma = 
+ \vec{f}^\T\vec{p}+ \vec{g}^\T \vec{q} +\vec{h}^\T \vec{r}\).
+We say that the inequality \(\vec{c}^\T \vec{x} \geq \gamma\)
+is *inferred* from the system \@ref(eq:mixed-sys).
+To simplify the language for describing linear constraint inference,
+we often assign labels to the constraints and 
+write linear combinations of them.  For example, say we have the system
+\begin{align}
+x_1 + 2x_2 & \geq 2  (\#eq:lin-comb-geq) \\
+-x_1 + x_2 & \leq 1  (\#eq:lin-comb-leq) \\
+3x_1 - x_2 & = -1.  (\#eq:lin-comb-eq)
+\end{align}
+Then 
+\(2\times\) 
+\@ref(eq:lin-comb-geq) \(+\) 
+\((-1)\times\)
+\@ref(eq:lin-comb-leq) \(+\) 
+\@ref(eq:lin-comb-eq)
+refers to the inequality \(6x_1+2x_2 \geq 2\) since
+\(2(x_1+2x_2)+(-1)(-x_1+x_2)+(3x_1 - x_2)\) gives \(6x_1 + 2x_2\)
+and \(2(2) + (-1)(1) + (-1)\) is \(2\).
+

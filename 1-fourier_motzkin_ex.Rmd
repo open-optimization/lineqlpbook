@@ -1,0 +1,25 @@
+## Exercises {-}
+
+1. Use Fourier-Motzkin elimination to determine
+if there exist \(x,y,z\in\mathbb{R}\)
+satisfying
+\begin{eqnarray*}
+x + y + 2z& \geq & 1 \\
+-x + y + z & \geq & 2 \\
+x-y + z  & \geq & 1 \\
+-y - 3z & \geq & 0.
+\end{eqnarray*}
+
+2. Let \(\mathbf{a}^1,\ldots, \mathbf{a}^m \in \mathbb{R}^n\).
+Let \(\beta_1,\ldots, \beta_m \in\mathbb{R}\).
+Let \(\lambda_1,\ldots, \lambda_m \geq 0\).
+Then the inequality
+\(\displaystyle
+\left(\sum_{i = 1}^{m} \lambda_i {\mathbf{a}^{i}}\right)^\mathsf{T}\mathbf{x}
+\geq \sum_{i=1}^{m} \lambda_i \beta_i\) is called
+a <em>nonnegative linear combination</em>
+of the inequalities
+\({\mathbf{a}^{i}}^\mathsf{T} \mathbf{x} \geq \beta_i\), \(i = 1,\ldots, m\).
+Show that any new inequality created by
+Fourier-Motzkin Elimination is a nonnegative linear
+combination of the original inequalities.

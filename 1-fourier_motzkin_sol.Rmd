@@ -1,0 +1,68 @@
+## Solutions {-}
+
+1. We use Fourier-Motzkin elimination to eliminate \(x\).
+    We first copy down the inequality \(-y-3z\geq 0\) and then
+    form one new inequality by adding the first two inequalities and
+    another by adding the second and third inequalities.
+    The resulting system is
+    \begin{eqnarray*}
+    -y - 3z & \geq & 0 \\
+     2y + 3z& \geq & 3 \\
+    2z & \geq & 3.
+    \end{eqnarray*}
+    Note that this system has a solution if and only if the original system does.
+    
+    We now use Fourier-Motzkin elimination to eliminate \(y\).
+    First we multiply the second inequality by \(\frac{1}{2}\) to obtain
+    \begin{eqnarray*}
+    -y - 3z & \geq & 0 \\
+     y + \frac{3}{2}z& \geq & \frac{3}{2} \\
+    2z & \geq & 3.
+    \end{eqnarray*}
+    
+    
+    Eliminating \(y\) gives
+    \begin{eqnarray*}
+    2z & \geq & 3 \\
+     - \frac{3}{2}z& \geq & \frac{3}{2},
+    \end{eqnarray*}
+    or equivalently,
+    \begin{eqnarray*}
+    z & \geq & \frac{3}{2} \\
+     z& \leq & -1,
+    \end{eqnarray*}
+    which clearly has no solution.
+    Hence, there is no \(x,y,z\) satisfying the original system.
+   
+2. First of all, observe that a nonnegative linear combination of
+    \(\geq\)-inequalites that are themselves nonnegative linear combination of
+    the inequalites in \(\mathbf{A}\mathbf{x}\geq \mathbf{b}\) 
+    is again a nonnegative linear combination of inequalities in
+    \(\mathbf{A}\mathbf{x}\geq \mathbf{b}\).
+    
+    
+    It is easy to see that in Step 1 of 
+     Fourier-Motzkin Elimination all inequalities are
+    nonnegative linear combinations of the original inequalities.
+    For instance, multiplying 
+    \({\mathbf{a}^{i'}}^\mathsf{T}\mathbf{x} \geq \beta_{i'}\) by
+    \(\alpha \gt 0\) is the same as taking the nonnegative linear combination
+    \(\displaystyle
+    \left(\sum_{i = 1}^m \lambda_i {\mathbf{a}^{i}}\right)^\mathsf{T}\mathbf{x}
+    \geq \sum_{i=1}^m \lambda_i \beta_i\) with
+    \(\lambda_i = 0\) for all \(i \neq i'\) and
+    \(\lambda_{i'} = \alpha\).
+    
+    
+    In Step 2, new inequalities are formed by adding two inequalities from
+    Step 1.  Hence, they are nonnegative linear combinations of the inequalities
+    from Step 1.  By the observation at the beginning, they are 
+    nonnegative linear combinations of the original system.
+    
+    
+    **Remark.**
+    By the observation at the beginning and this result, 
+    we see that after repeated applications
+    of Fourier-Motzkin Elimination, all resulting inequalities 
+    are nonnegative linear combinations of the original inequalities.  This
+    is an important fact that will be exploited later.

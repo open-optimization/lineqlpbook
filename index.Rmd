@@ -1,0 +1,35 @@
+---
+title: "Linear Inequalities and Linear Programming"
+author: "Kevin Cheung"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output:bookdown::gitbook:
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: dataopt/lineqlpbook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r newandrenew, child = '_renewcommand.tex'}
+```
+
+# Preface {-}
+
+This book covers the fundamentals of linear programming through 
+studying systems of linear inequalities using only basic facts from
+linear algebra.  It is suitable for a crash course on linear programming
+that emphasizes theoretical aspects of the subject.
+Discussion on practical solution methods such as the simplex method 
+and interior point methods, though not present in this book, is planned for 
+a future book.
+
+Two excellent references for further study are @Bertsimas:1997
+and @Schrijver:1986.
+
+![Creative Commons License](images/by-sa.png)
+The book is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).

@@ -1,0 +1,22 @@
+## Solutions {-}
+
+1. An optimal solution to the modified problem is 
+given by \(x^* = \begin{bmatrix} 1\\1\\1 \end{bmatrix}\).
+
+2.  An optimal solution is 
+   \(\begin{bmatrix} x\\y \end{bmatrix} = \begin{bmatrix} 2 \\ 0\end{bmatrix}\).
+   Thus, the optimal value is \(6\).
+
+3.
+    a.  Since \(\vec{d} \geq \vec{0}\) and \(\mm{A}\vec{x} \geq \vec{b}\),
+    we have \(\vec{d}^T\mm{A} \vec{x} \geq \vec{d}^\T\vec{b}\).
+    If \(\vec{d}^\T\vec{b}\) is an integer, the result follows immediately.
+    Otherwise, note that \(\vec{d}^\T\mm{A} \in \ZZ^n\)
+    and \(\vec{x}\in \ZZ^n\) imply
+    that \(\vec{d}^T\mm{A} \vec{x}\) is an integer.
+    Thus, \(\vec{d}^T\mm{A} \vec{x}\) must be greater than or equal to
+    the least integer greater than \(\vec{d}^\T\vec{b}\).
+
+    b.  Take \(\vec{d} = \begin{bmatrix} \frac{1}{9} \\
+    0 \\ \frac{1}{9} \end{bmatrix}\) and apply
+    the result in the previous part. \(x^c^\)

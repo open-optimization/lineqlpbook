@@ -1,0 +1,82 @@
+## Solutions {-}
+
+1.  The system can be written as \(\mm{A}\vec{x} \geq \vec{b}\)
+    with \(\mm{A} = \begin{bmatrix}
+    1 & 1 & 2 \\
+    -1 & 1 & 1 \\
+    1 & -1 & 1 \\
+    0 & -1 & -3 \end{bmatrix}\) and
+    \(\vec{b} = \begin{bmatrix} 1 \\ 2 \\ 1 \\ 0\end{bmatrix}\).
+    So we need to find \(\vec{y} \geq 0\) such that
+    \(\vec{y}^\mathsf{T} \mm{A} = \vec{0}\)
+    and \(\vec{y}^\mathsf{T} \vec{b} \gt 0\).
+    As the system of equations 
+    \(\vec{y}^\mathsf{T} \mm{A} = \vec{0}\) is homogeneous,
+    we could without loss of generality fix
+    \(\vec{y}^\mathsf{T} \vec{b} = 1\), thus leading to
+    the system 
+    \begin{eqnarray*}
+    \vec{y}^\mathsf{T}\mm{A} = \vec{0} \\
+    \vec{y}^\mathsf{T}\vec{b} = 1 \\
+    \vec{y} \geq \vec{0}
+    \end{eqnarray*}
+    that we could attempt to solve directly.
+    However, it is possible to obtain a \(\vec{y}\) using 
+    the Fourier-Motzkin Elimination Method.
+    
+    
+    Let us first label the inequalities:
+    \begin{eqnarray*}
+    x_1 + x_2 + 2x_3& \geq & 1~~~~~(1) \\
+    -x_1 + x_2 + x_3 & \geq & 2~~~~~(2) \\
+    x_1-x_2 + x_3  & \geq & 1~~~~~(3) \\
+    -x_2 - 3x_3 & \geq & 0.~~~~(4)
+    \end{eqnarray*}
+    Eliminating \(x_1\) gives:
+    \begin{eqnarray*}
+    -x_2 - 3x_3 & \geq & 0~~~~~(4) \\
+    2x_2 + 3x_3& \geq & 3~~~~~(5) \\
+    2x_3  & \geq & 3.~~~~(6) \\
+    \end{eqnarray*}
+    Note that \((5)\) is obtained from \((1) + (2)\) and
+    \((6)\) is obtained from \((2) + (3)\).
+    
+    
+    Multiplying \((5)\) by \(\frac{1}{2}\) gives
+    \begin{eqnarray*}
+    -x_2 - 3x_3 & \geq & 0~~~~~~(4) \\
+    x_2 + \frac{3}{2}x_3& \geq & \frac{3}{2}~~~~(7) \\
+    2x_3  & \geq & 3.~~~~~(6) \\
+    \end{eqnarray*}
+    Eliminating \(x_2\) gives:
+    \begin{eqnarray*}
+    2x_3  & \geq & 3~~~~~~~(6) \\
+    - \frac{3}{2} x_3 & \geq & \frac{3}{2}~~~~~(8)
+    \end{eqnarray*}
+    where \((8)\) is obtained from \((4) + (7)\).
+    
+    
+    Now \(\frac{3}{4}\times (6) + (8)\) 
+    gives \(0 \geq \frac{15}{4}\), a contradiction.
+    
+    
+    To obtain a certificate of infeasibility, we trace back the computations.
+    Note that
+     \(\frac{3}{4} (6) + (8)\) is given by
+     \(\frac{3}{4} ((2)+(3)) + (4)+ (7)\), which in turn is given by
+     \(\frac{3}{4} ((2)+(3)) + (4)+ \frac{1}{2}(5)\), which in turn is given by
+     \(\frac{3}{4} ((2)+(3)) + (4)+ \frac{1}{2}((1) + (2))\).
+    
+    
+    Thus, we can obtain \(0 \geq \frac{15}{4}\) from the nonnegative
+    linear combination of the original inequalities as follows:
+    \(\frac{1}{2} (1) + \frac{5}{4} (2) + \frac{3}{4} (3) + (4)\).
+    
+    
+    Therefore, \(\vec{y} = \begin{bmatrix}
+    \frac{1}{2} \\ \frac{5}{4} \\ \frac{3}{4} \\ 1\end{bmatrix}\)
+    is a certificate of infeasibility.
+    
+    
+    (Check that \(\vec{y}^\mathsf{T}\mm{A} = \vec{0}\) and
+    \(\vec{y}^\mathsf{T} \vec{b} \gt 0\).

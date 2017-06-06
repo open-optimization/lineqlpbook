@@ -1,0 +1,35 @@
+book_filename: "lineqlpbook"
+language:
+  ui:
+    chapter_name: "Chapter "
+
+rmd_files:
+  html: ["index.Rmd", "0-prelim.Rmd"
+      , "1-graphical_eg.Rmd", "1-graphical_eg_ex.Rmd", "1-graphical_eg_sol.Rmd"
+      , "1-definitions.Rmd", "1-definitions_ex.Rmd", "1-definitions_sol.Rmd"
+      , "1-linear_inf.Rmd", "1-linear_inf_ex.Rmd", "1-linear_inf_sol.Rmd"
+      , "1-fourier_motzkin.Rmd" ,"1-fourier_motzkin_ex.Rmd"
+      , "1-fourier_motzkin_sol.Rmd"
+      , "1-farkas_lemma.Rmd","1-farkas_lemma_ex.Rmd", "1-farkas_lemma_sol.Rmd"
+      , "1-fundamental.Rmd" , "1-fundamental_ex.Rmd" , "1-fundamental_sol.Rmd"
+      , "1-duality.Rmd", "1-duality_ex.Rmd", "1-duality_sol.Rmd"
+      , "1-comp_slack.Rmd", "1-comp_slack_ex.Rmd", "1-comp_slack_sol.Rmd"
+      , "1-bfs.Rmd", "1-bfs_ex.Rmd", "1-bfs_sol.Rmd"
+      , "1-soplex.Rmd", "1-soplex_ex.Rmd", "1-soplex_sol.Rmd"
+      , "1-ilp.Rmd", "1-ilp_ex.Rmd", "1-ilp_sol.Rmd"
+      , "references.Rmd"
+       ]
+  latex: ["index.Rmd", "0-prelim.Rmd"
+      , "1-graphical_eg.Rmd", "1-graphical_eg_ex.Rmd", "1-graphical_eg_sol.Rmd"
+      , "1-definitions.Rmd", "1-definitions_ex.Rmd", "1-definitions_sol.Rmd"
+      , "1-linear_inf.Rmd", "1-linear_inf_ex.Rmd", "1-linear_inf_sol.Rmd"
+      , "1-fourier_motzkin.Rmd" ,"1-fourier_motzkin_ex.Rmd"
+      , "1-fourier_motzkin_sol.Rmd"
+      , "1-farkas_lemma.Rmd","1-farkas_lemma_ex.Rmd", "1-farkas_lemma_sol.Rmd"
+      , "1-fundamental.Rmd" , "1-fundamental_ex.Rmd" , "1-fundamental_sol.Rmd"
+      , "1-duality.Rmd", "1-duality_ex.Rmd", "1-duality_sol.Rmd"
+      , "1-comp_slack.Rmd", "1-comp_slack_ex.Rmd", "1-comp_slack_sol.Rmd"
+      , "1-bfs.Rmd", "1-bfs_ex.Rmd", "1-bfs_sol.Rmd"
+      , "1-soplex.Rmd", "1-soplex_ex.Rmd", "1-soplex_sol.Rmd"
+      , "1-ilp.Rmd", "1-ilp_ex.Rmd", "1-ilp_sol.Rmd"
+       ]

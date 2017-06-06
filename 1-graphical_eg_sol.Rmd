@@ -1,0 +1,81 @@
+## Solutions { - }
+
+1.  The points \((x,y)\) satisfying \(x-2y \leq 2\) are precisely those
+    above the line passing through \((2,0)\) and \((0,-1)\).
+
+2.  We want to determine
+    the minimum value \(z\) so that
+    \(x+y=z\) defines a line that has a nonempty intersection with
+    the feasible region.
+    However, we can avoid referring to a sketch by 
+    setting \(x=z-y\) and substituting
+    for \(x\) in the inequalities to obtain:
+    \begin{eqnarray*}
+     2(z-y) + y \geq 4 \\
+     (z-y) + 3y \geq 1,
+    \end{eqnarray*}
+    or equivalently,
+    \begin{eqnarray*}
+     z \geq 2+\frac{1}{2}y \\
+     z \geq 1-2y,
+    \end{eqnarray*}
+    Thus, the minimum value for \(z\) is \(\min \{ 2+\frac{1}{2}y, 1-2y\}\),
+    which occurs at \(y = -\frac{2}{5}\).
+    Hence, the optimal value is \(\frac{9}{5}\).
+    
+    We can verify our work by doing the following.
+    If our calculations above are
+    correct, then an optimal solution is given by
+    \(x = \frac{11}{5}\), \(y = -\frac{2}{5}\) since \(x = z - y\).
+    It is easy to check that this satisfies both inequalities and therefore
+    is a feasible solution.
+    
+    Now, taking \(\frac{2}{5}\) times the first inequality and
+    \(\frac{1}{5}\) times the second inequality, we can infer the
+    inequality \(x+y \geq \frac{9}{5}\).  The left-hand side of this inequality
+    is precisely the objective function.  Hence, no feasible solution can
+    have objective function value less than \(\frac{9}{5}\).
+    But \(x = \frac{11}{5}\), \(y = -\frac{2}{5}\) is a feasible solution
+    with objective function value equal to \(\frac{9}{5}\).  As a result,
+    it must be an optimal solution.
+    
+    
+    **Remark.** We have not yet discussed how to obtain the multipliers
+    \(\frac{2}{5}\) and \(\frac{1}{5}\) for inferring the inequality
+    \(x+y \geq \frac{9}{5}\).  This is an issue that will be taken up later.
+    In the meantime, think about how one could have obtained these multipliers
+    for this particular exercise.
+
+3. We could glean some insight by first making a sketch
+    on the \((x,y)\)-plane.
+    
+    The line defined by \(-x + y = z\) has \(x\)-intercept \(-z\).
+    Note that for \(z \leq -3\),
+    \(\begin{bmatrix} x\\y \end{bmatrix} = 
+    \begin{bmatrix} -z\\ 0\end{bmatrix}\) satisfies both inequalities
+    and the value of the objective function at 
+    \(\begin{bmatrix} x\\y \end{bmatrix} = 
+    \begin{bmatrix} -z\\ 0\end{bmatrix}\) is \(z\).
+    Hence, there is no lower bound on the value of objective function.
+
+4. Let \(x_i\) denote the amount of Product \(i\) to buy for \(i = 1,2,3\).
+    Then, the problem can be formulated as
+    \[\begin{array}{rrcrcrll}
+    \mbox{minimize } & 27 x_1 & + & 31 x_2 & + & 24 x_3 \\
+    \mbox{subject to} 
+    & 0.16 x_1 & + & 0.21 x_2 & + & 0.11 x_3 & \geq & 0.30 \\
+    & 0.19 x_1 & + & 0.13 x_2 & + & 0.15 x_3 & \geq & 0.40 \\
+    & x_1 & , & x_2 & , & x_3 & \geq & 0. \\
+    \end{array}\]
+    
+    **Remark.**
+    If one cannot buy fractional amounts of the products, the problem
+    can be formulated as
+    \[\begin{array}{rrcrcrll}
+    \mbox{minimize } & 27 x_1 & + & 31 x_2 & + & 24 x_3 \\
+    \mbox{subject to} 
+    & 0.16 x_1 & + & 0.21 x_2 & + & 0.11 x_3 & \geq & 0.30 \\
+    & 0.19 x_1 & + & 0.13 x_2 & + & 0.15 x_3 & \geq & 0.40 \\
+    & x_1 & , & x_2 & , & x_3 & \geq & 0. \\
+    & x_1 & , & x_2 & , & x_3 & \in & \mathbb{Z}. \\
+    \end{array}\]
